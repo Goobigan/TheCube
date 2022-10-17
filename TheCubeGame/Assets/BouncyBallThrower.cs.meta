@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: 3988d8b15117a04489576693e5e76bf8
+guid: d0363ec17f3364a4bb1ba26187c4d8ca
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prefab: {fileID: 4060252645433737238, guid: f8da3aa0fa942a54e9bced0ac49d724c, type: 3}
+  - camera: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

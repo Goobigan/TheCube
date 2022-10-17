@@ -18,6 +18,8 @@ public class applyForces : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (Input.GetKey(KeyCode.A))
         {
             ourRigidBody.AddForce(Vector3.left);
@@ -46,24 +48,5 @@ public class applyForces : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-
-     Health ObjectHitHealth = collision.gameObject.GetComponent<Health>();
-
-        if (ObjectHitHealth)
-        {
-            print("Found health script in object hit");
-            ObjectHitHealth.takeDamage(20);
-
-            int ObjectsMaxHealth = ObjectHitHealth.whatsYourMaxHealth();
-            if(ObjectsMaxHealth>100)
-                ObjectHitHealth.takeDamage(20);
-
-        }
-        else
-        {
-            print("Didn't find health script in object hit");
-        }
-    }
+ 
 }
