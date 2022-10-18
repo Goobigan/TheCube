@@ -23,7 +23,7 @@ public class BouncyBallThrower : MonoBehaviour
 
             GameObject BouncyBall = Instantiate(prefab, r.GetPoint(2), Quaternion.LookRotation(dir));
 
-            BouncyBall.GetComponent<Rigidbody>().velocity = BouncyBall.transform.forward * 20;
+            BouncyBall.GetComponent<Rigidbody>().velocity = BouncyBall.transform.forward * 100;
             Destroy(BouncyBall, 3);
         }
     }
