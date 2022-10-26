@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour
 {
 
+
     public float Sensitivity
     {
         get
@@ -26,19 +27,23 @@ public class CameraControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
+
     void Update()
     {
-        rotation.x += Input.GetAxis(xAxis) * sensitivity;
-        rotation.y += Input.GetAxis(yAxis) * sensitivity;
+        rotation.x += Input.GetAxis(xAxis) * (sensitivity*10);
+        rotation.y += Input.GetAxis(yAxis) * (sensitivity*10);
         rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);
         var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
         var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
 
         transform.localRotation = xQuat * yQuat;
+        
 
     }
+
 }
