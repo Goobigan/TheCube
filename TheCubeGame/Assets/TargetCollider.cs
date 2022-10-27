@@ -24,7 +24,7 @@ public class TargetCollider : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-        Destroy(target);
+        Destroy(target, 0);
         if (NumberOfTargets == 1)
         {
             print("Mission Complete!");

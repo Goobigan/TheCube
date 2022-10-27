@@ -27,7 +27,7 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
 
-        GetComponentInChildren
+        
         rigidbody = GetComponent<Rigidbody>();
         if (Input.GetKey(KeyCode.W))
             transform.position += transform.forward *10* Time.deltaTime;
