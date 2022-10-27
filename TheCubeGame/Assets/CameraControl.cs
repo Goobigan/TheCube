@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour
 {
 
-
+    
     public float Sensitivity
     {
         get
@@ -20,7 +20,7 @@ public class CameraControl : MonoBehaviour
     [Range(.1f, 9f)] [SerializeField] float sensitivity = 5f;
     [Range(0f, 110f)] [SerializeField] float yRotationLimit = 100f;
 
-    Vector2 rotation = Vector2.zero;
+    public Vector2 rotation = Vector2.zero;
     const string xAxis = "Mouse X";
     const string yAxis = "Mouse Y";
 
@@ -28,15 +28,15 @@ public class CameraControl : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
 
     void Update()
     {
-        rotation.x += Input.GetAxis(xAxis) * (sensitivity*10);
-        rotation.y += Input.GetAxis(yAxis) * (sensitivity*10);
+        rotation.x += Input.GetAxis(xAxis) * (sensitivity*5);
+        rotation.y += Input.GetAxis(yAxis) * (sensitivity*5);
         rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);
         var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
         var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);

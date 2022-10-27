@@ -7,14 +7,14 @@ public class TargetCollider : MonoBehaviour
 {
     public int NumberOfTargets;
     public GameObject target;
-    int TargetCH;
-    public int TargetMaxHealth=150;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         NumberOfTargets = 10;
-        TargetCH = TargetMaxHealth;
+
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class TargetCollider : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-
+        Destroy(target);
         if (NumberOfTargets == 1)
         {
             print("Mission Complete!");
@@ -34,6 +34,6 @@ public class TargetCollider : MonoBehaviour
             print("One Target Down! Only " + (NumberOfTargets - 1) + "Remaining");
             NumberOfTargets = NumberOfTargets - 1;
         }
-        Destroy(obj: target, 0);
+        
     }
 }

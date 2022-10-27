@@ -7,7 +7,7 @@ public class CharacterController : MonoBehaviour
 
     Rigidbody rigidbody;
     bool allowJump = true;
-    public Component camera;
+   
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -26,8 +26,8 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation=
 
+        GetComponentInChildren
         rigidbody = GetComponent<Rigidbody>();
         if (Input.GetKey(KeyCode.W))
             transform.position += transform.forward *10* Time.deltaTime;
