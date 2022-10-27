@@ -1,4 +1,4 @@
 ﻿internal class GetComponentInChildren
 {
-    
+
 }
