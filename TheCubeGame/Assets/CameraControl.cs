@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-
+    public Quaternion CameraTransform;
     
     public float Sensitivity
     {
@@ -17,16 +17,20 @@ public class CameraControl : MonoBehaviour
             sensitivity = value;
         }
     }
+
+
     [Range(.1f, 9f)] [SerializeField] float sensitivity = 5f;
     [Range(0f, 110f)] [SerializeField] float yRotationLimit = 100f;
 
     public Vector2 rotation = Vector2.zero;
+    
     const string xAxis = "Mouse X";
     const string yAxis = "Mouse Y";
 
     // Start is called before the first frame update
     void Start()
     {
+        //makes a lot of ball thrower work redundant, but it clashed too much with rotation, had to be done
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -41,9 +45,9 @@ public class CameraControl : MonoBehaviour
         var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
         var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
 
-        transform.localRotation = xQuat * yQuat;
+        CameraTransform = transform.localRotation = xQuat * yQuat;
         
 
-    }
-
+}
+    internal object eulerAngles = yAxis;
 }
