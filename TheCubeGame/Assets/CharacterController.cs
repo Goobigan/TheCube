@@ -6,11 +6,12 @@ public class CharacterController : MonoBehaviour
 {
 
     Rigidbody rigidbody;
-    bool allowJump = true;
-   
+    bool allowJump = true;   
+    public  CameraControl CameraTransform;
 
     private void OnCollisionEnter(Collision collision)
     {
+        //if statement to stop infinite jumping
         if (collision.gameObject.CompareTag("Ground"))
         {
             allowJump = true;
@@ -27,7 +28,7 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
 
-        
+        //Base movement controls
         rigidbody = GetComponent<Rigidbody>();
         if (Input.GetKey(KeyCode.W))
             transform.position += transform.forward *10* Time.deltaTime;
@@ -46,8 +47,12 @@ public class CharacterController : MonoBehaviour
             rigidbody.AddForce(Vector3.up * 250);
             allowJump = false;
         }
-        
 
-  
+        //An attempt to get the character to face the same direction as the camera
+        //transform.rotation = Quaternion.Euler(0, CameraTransform.eulerAngles.y, 0);
+
+
+
+
     }
 }

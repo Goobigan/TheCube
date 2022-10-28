@@ -24,7 +24,9 @@ public class TargetCollider : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-        Destroy(target, 0);
+
+        
+        //no longer functions, as the targets are destroyed so resets count to 10 every time target is destroyed
         if (NumberOfTargets == 1)
         {
             print("Mission Complete!");
@@ -34,6 +36,6 @@ public class TargetCollider : MonoBehaviour
             print("One Target Down! Only " + (NumberOfTargets - 1) + "Remaining");
             NumberOfTargets = NumberOfTargets - 1;
         }
-        
+        Destroy(target, 0);
     }
 }
